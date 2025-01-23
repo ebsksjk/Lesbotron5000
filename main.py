@@ -16,11 +16,11 @@ notebook.pack(expand=True, fill='both')
 
 # Tab 1
 tab1 = ttk.Frame(notebook)
-notebook.add(tab1, text="Tab 1")
+notebook.add(tab1, text="Load images")
 
 # Tab 2
 tab2 = ttk.Frame(notebook)
-notebook.add(tab2, text="Tab 2")
+notebook.add(tab2, text="Render video")
 
 # Layout for Tab 1
 # Create a frame for the left section (textboxes and buttons)
@@ -160,7 +160,7 @@ def renderVideo():
         for file in input_files:
             f.write(f"file '{file}'\n".replace("\\", "/"))
 
-    ffmpeg.input(os.path.join(os.getcwd(), 'file_list.txt'), format='concat', safe=0).output("out.mp4", r=fps).run()
+    ffmpeg.input(os.path.join(os.getcwd(), 'file_list.txt'), format='concat', safe=0).output("out.mp4", r=fps).run(overwrite_output=True)
 
 
 tk.Button(left_frame_tab2, text="Render video", command=renderVideo).pack(pady=5)

@@ -94,8 +94,9 @@ def extractPictures(imgArr, path, f, pfile, pi, page):
 
         # save the image
         img_ind = "%03d"%image_index
+        page_nr = "%03d"%(pi + 1)
         print(img_ind)
-        image_name = f"{filename}_image{pi + 1}_{img_ind}.{image_ext}"
+        image_name = f"{filename}_image{page_nr}_{img_ind}.{image_ext}"
         with open(os.path.join(os.getcwd(), path, image_name), "wb") as image_file:
             image_file.write(image_bytes)
             print(f"[+] Image saved as {os.path.join(os.getcwd(),path, image_name)}")
